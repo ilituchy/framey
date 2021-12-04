@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "paths": {
+      "styleUtils/*": ["./src/styledComponents/utils/*"],
+      "styledComponents/*": ["./src/styledComponents/*"],
+      "components/*": ["./src/components/*"],
+      "helpers/*": ["./src/helpers/*"],
+      "pages/*": ["./src/pages/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "icons/*": ["./src/components/utils/icons/*"],
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*", "dist"]
+}
