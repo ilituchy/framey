@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/macro';
 import media from '../utils/styleUtils/mediaQueries';
 
 export const NavBarWrapper = styled.div`
-  width: 100%;
+  width: 94vw;
   height: 80px;
   background-color: rgba(255, 255, 255, 0.5);
   position: fixed;
@@ -47,6 +47,7 @@ export const TitleFlex = styled.div`
     margin-bottom: 0;
     margin-left: 15px;
     font-size: 32px;
+    margin-top: 0;
   }
 `;
 

@@ -102,7 +102,7 @@ const Intro = ({ show, hideIntro }) => {
       {show && <>
         <div style={{ display: 'flex' }}>
           {mainTransition((style, item) => (
-            <animated.div style={style}>
+            <animated.div className="drop-text" style={style}>
               <h1 className={item.fig}>{item.fig}</h1>
             </animated.div>
           ))}

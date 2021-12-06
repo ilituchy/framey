@@ -11,6 +11,10 @@ export const IntroWrapper = styled.div`
     height: 0;
     width: 0;
   `};
+  .drop-text {
+    display: flex;
+    align-items: center;
+  }
   h1 {
     margin-right: 15px;
     text-align: center;
