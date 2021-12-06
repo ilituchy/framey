@@ -14,18 +14,23 @@ import {
 } from './styles';
 
 const PortalFrame = ({ frame, image, horizontal, mat, matColor, innerMatColor }) => {
+  
   const frameRef = useRef();
+  const fullRef = useRef();
+
   return (
-    <PortalElementWrapper>
+    <PortalElementWrapper ref={fullRef} horizontal={horizontal}>
       {frame && frame.node && frame.node.childImageSharp && 
-        <PortalFrameWrapper ref={frameRef} horizontal={horizontal} src={frame.node.publicURL} />
+        <PortalFrameWrapper fullRef={fullRef} src={frame.node.publicURL} ref={frameRef} horizontal={horizontal} />
       }
       {image && image.node && image.node.childImageSharp &&
-        <PortalImageWrapper src={image.node.publicURL} innerMatColor={innerMatColor} mat={mat} size={frameRef.current} horizontal={horizontal} />
+        <PortalImageWrapper innerMatColor={innerMatColor} mat={mat} size={frameRef.current} horizontal={horizontal}>
+          <GatsbyImage image={image.node.childImageSharp.gatsbyImageData} alt="frame" />
+        </PortalImageWrapper>
       }
       {(mat > 0) && frame && frame.node &&
         <PortalMat
-          color={matColor}
+          matColor={matColor}
           mat={mat}
           horizontal={horizontal}
         />
@@ -40,6 +45,7 @@ const MainImage = ({ frame, image, horizontal, mat, matColor, innerMatColor, set
   
   // Send the info for the element back to the higher level
   useEffect(() => {
+    debugger;
     setPortalElement(<PortalFrame frame={frame} image={image} horizontal={horizontal} mat={mat} matcolor={matColor} innerMatColor={innerMatColor} />)
   }, [frame, image, mat, horizontal, matColor, innerMatColor]);
   
@@ -49,11 +55,9 @@ const MainImage = ({ frame, image, horizontal, mat, matColor, innerMatColor, set
         <h2>Start by selected an image or frame!</h2>
       }
       {((frame && frame.node) || (image && image.node)) && 
-        <MainImageWrapper ref={fullRef}>
+        <MainImageWrapper ref={fullRef} horizontal={horizontal}>
           {frame && frame.node && frame.node.childImageSharp && 
-            <FrameWrapper ref={frameRef} horizontal={horizontal}>
-              <GatsbyImage image={frame.node.childImageSharp.gatsbyImageData} alt="frame" />
-            </FrameWrapper>
+            <FrameWrapper src={frame.node.publicURL} ref={frameRef} horizontal={horizontal} />
           }
           {image && image.node && image.node.childImageSharp &&
             <ImageWrapper innerMatColor={innerMatColor} mat={mat} size={frameRef.current} horizontal={horizontal}>

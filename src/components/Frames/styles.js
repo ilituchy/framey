@@ -42,8 +42,8 @@ export const ImageWrapper = styled.div`
   height: 100%;
   overflow: hidden;
   .gatsby-image-wrapper {
-    height: 200%;
-    width: 200%;
-    margin-left: -24px;
+    height: 205%;
+    width: 163%;
+    margin-top: 13px;
   }  
 `;

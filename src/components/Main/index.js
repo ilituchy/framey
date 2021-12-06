@@ -57,7 +57,7 @@ const Main = ({ wall, logo, frames, images }) => {
       <Intro show={showIntro} hideIntro={hideIntro}/>
       {!showIntro && <DragWrapper>
         {savedImages && savedImages.map((element, index) => (
-          <GestureCard>
+          <GestureCard key={index} horizontal={element.props.horizontal}>
             {element}
           </GestureCard>
         ))} 

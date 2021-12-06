@@ -5,7 +5,7 @@ import {
   Container,
 } from './styles';
 
-const GestureCard = ({ children }) => {
+const GestureCard = ({ children, horizontal }) => {
   useEffect(() => {
     const preventDefault = e => e.preventDefault();
     document.addEventListener('gesturestart', preventDefault);
@@ -65,7 +65,7 @@ const GestureCard = ({ children }) => {
         rotateZ,
       }}>
       <animated.div style={{ height: 'auto' }}>
-        <Container>
+        <Container horizontal={horizontal}>
           {children}
         </Container>
       </animated.div>
