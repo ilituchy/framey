@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 const Main = ({ wall, logo, frames, images }) => {
-  const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const [editModal, setEditModal] = useState(false);
   const [portalElement, setPortalElement] = useState(null);
   const [savedImages, setSavedImages] = useState([]);
